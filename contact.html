@@ -59,11 +59,11 @@
                     </div>
                 </div>
                 <div class="contact-col">
-                    <form action="form-handler.php" method="post">
-                        <input type="text" name="name" placeholder="Enter your name" required>
-                        <input type="email" name="email" placeholder="Enter email address" required>
-                        <input type="text" name="subject" placeholder="Enter your subject" required>
-                        <textarea rows="8" name="message" placeholder="Message" required></textarea>
+                    <form onsubmit="sendEmail(); reset(); return false;">
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                        <input type="email" id="email" placeholder="Enter email address" required>
+                        <input type="text" id="subject" placeholder="Enter your subject" required>
+                        <textarea rows="8" id="message" placeholder="Write your message here." required></textarea>
                         <button type="submit" class="hero-btn red-btn">Send Message</button>
                     </form>
                 </div>
@@ -92,6 +92,23 @@
             }
             function hideMenu(){
                 navLinks.style.right="-200px";
+            }
+        </script>
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+        <script>
+            function sendEmail(){
+                Email.send({
+                Host : "smtp.gmail.com",
+                Username : "papasanimadhavi2003@gmail.com",
+                Password : "madhavi1111",
+                To : 'madhavipapasanimadhavi2003@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New Contact Form Enquiry",
+                Body : "And this is the body"
+            }).then(
+            message => alert(message)
+            );
             }
         </script>
     </body>
