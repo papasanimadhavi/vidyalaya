@@ -1,1 +1,1 @@
-# papasanimadhavi.github.io
+# vidyalaya.github.io
